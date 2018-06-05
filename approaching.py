@@ -7,8 +7,8 @@ velocity = 0 #Intial velocity
 timestep = 0.01 #Number of seconds use for each step
 totaltime = 0
 
-with open('data.csv', 'w') as csvfile:
-    writer = csv.writer(csvfile, delimiter=' ')
+with open('data.csv', 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile, delimiter=',',)
     writer.writerow(["Time", "Distance", "Velocity", "Acceleration"])
     writer.writerow([totaltime, distance, velocity, 0])
     while(distance > 0):
