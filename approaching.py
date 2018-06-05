@@ -4,7 +4,7 @@ import csv
 distance = 100 #Initial distance
 velocity = 0 #Intial velocity
 
-timestep = 0.01 #Number of seconds use for each step
+timestep = 0.0011 #Number of seconds use for each step
 totaltime = 0
 
 with open('data.csv', 'w', newline='') as csvfile:
@@ -12,9 +12,9 @@ with open('data.csv', 'w', newline='') as csvfile:
     writer.writerow(["Time", "Distance", "Velocity", "Acceleration"])
     writer.writerow([totaltime, distance, velocity, 0])
     while(distance > 0):
-        acceleration = 1 / (distance ** 2)
-        velocity += acceleration * timestep
-        distance -= velocity * timestep
+        acceleration = -1 / (distance ** 2)
+        velocity += -acceleration * timestep
+        distance += velocity * timestep
         totaltime += timestep
         writer.writerow([totaltime, distance, velocity, acceleration])
 
